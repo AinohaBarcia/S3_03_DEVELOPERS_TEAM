@@ -1,6 +1,6 @@
 package org.example;
 
-public class Tree extends Product{
+public class Tree extends Product{ 
     private float height;
     private int contId;
     private static final String type = "TREE";
