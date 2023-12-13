@@ -1,7 +1,7 @@
 package org.example;
 
 public abstract class Product {
-    protected String id;
+    protected static String id;
     protected String name;
     protected float price;
 
