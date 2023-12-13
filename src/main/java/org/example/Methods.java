@@ -23,4 +23,51 @@ public class Methods {
             System.out.println("Wrong material.");
         }
     }
+    public static void printProductCount(List<Product> productList){
+        int  treeCount = (int) productList.stream().filter (object -> object instanceof Tree).count();
+        System.out.println("There are  " + treeCount + " trees");
+
+        int  flowersCount = (int) productList.stream().filter (object -> object instanceof Flower).count();
+        System.out.println("There are  " + flowersCount + "flowers");
+
+        int  decorationCount = (int) productList.stream().filter (object -> object instanceof Decoration).count();
+        System.out.println("There are  " + decorationCount + "decorations");
+
+    }
+    public static void deleteProduct(List<Product> productList, String name){
+        int position = searchProduct(productList,name);
+
+        if (position>=0){
+            productList.remove(position);
+            System.out.println("The product " + name + " has been deleted");
+        }else {
+            System.out.println("The product " + name + " isn't in the list");
+        }
+    }
+    public static void stockTotalValue(List<Product>productList){
+        float valorTotal = (float) productList.stream()
+                .mapToDouble(Product::getPrice)
+                .sum();
+
+        System.out.println("The total value of the stock is : " + valorTotal + " €");
+    }
+    public static int searchProduct (List<Product> productList, String name){
+
+        boolean found = false;
+
+        int position = -1;
+        int index = 0;
+
+        while (index <productList.size() && !found) {
+
+            if (productList.get(index).getName().equals(name)) {
+                position = index;
+                found = true;
+            }
+            index++;
+        }
+
+        return position;
+    }
 }
+
