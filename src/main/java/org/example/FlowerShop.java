@@ -7,8 +7,8 @@ import java.util.List;
 
 public class FlowerShop {
     private String name;
-    private ArrayList <Product> productList;
-    private ArrayList <TiccketList> ticketList;
+    private List <Product> productList;
+    private List <Ticket> ticketList;
 
     public FlowerShop(String name) {
         this.name = name;
@@ -19,12 +19,15 @@ public class FlowerShop {
         productList.forEach(System.out::println);
     }
     public void printQuantity (){
-        //creo un hashMap para poder contar la cantidad de producto de cada clase
-        Map<String, Long> countByTpe = new HashMap<>();
-        productList.forEach(object -> countByTpe.merge(object.getClass().getName(), 1L, Long::sum));
 
-        // ahora podemos printar el resultado
-        countByTpe.forEach((tipo, cantidad) ->
-                System.out.println("Tipo: " + tipo + ", Cantidad: " + cantidad));
+        int  treeCount =  productList.stream().filter (object -> object instanceof Tree).count();
+            System.out.println("There are  " + treeCount + " trees");
+
+        int  flowersCount =  productList.stream().filter (object -> object instanceof Flower).count();
+            System.out.println("There are  " + flowersCount + "flowers");
+
+        int  decorationCount =  productList.stream().filter (object -> object instanceof Decoration).count();
+        System.out.println("There are  " + decorationCount + "decorations");
+
     }
 }

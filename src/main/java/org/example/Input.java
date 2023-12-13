@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Input {
     static Scanner sc = new Scanner(System.in);
-    public static int pideInt(String message) {
+    public static int getInt(String message) {
         int input = 0;
         boolean acceptedInput = false;
         do {
@@ -20,7 +20,7 @@ public class Input {
         } while (!acceptedInput);
         return input;
     }
-    public static byte pideByte(String message) {
+    public static byte getByte(String message) {
         byte input = 0;
         boolean acceptedInput = false;
         do {
@@ -35,7 +35,7 @@ public class Input {
         } while (!acceptedInput);
         return input;
     }
-    public static float pideFloat(String message) {
+    public static float getFloat(String message) {
         float input = 0;
         boolean acceptedInput = false;
         do {
@@ -51,7 +51,7 @@ public class Input {
         return input;
     }
 
-    public static String pideString(String message) {
+    public static String getString(String message) {
         String input = "";
         boolean acceptedInput = false;
         do {
