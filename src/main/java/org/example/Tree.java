@@ -2,12 +2,12 @@ package org.example;
 
 public class Tree extends Product{ 
     private float height;
-    private int contId;
+    private static int contId;
     private static final String type = "TREE";
 
     public Tree(String name, float price, float height) {
         super(name, price);
-        this.id = generateId();
+        id = generateId();
         this.height = height;
         contId++;
     }
