@@ -13,7 +13,7 @@ public class FlowerShop {
     public FlowerShop(String name) {
         this.name = name;
         productList = new ArrayList<Product>();
-        ticketList = new ArrayList<TiccketList>();
+        ticketList = new ArrayList<Ticket>();
     }
     public void printStock (){
         productList.forEach(System.out::println);
