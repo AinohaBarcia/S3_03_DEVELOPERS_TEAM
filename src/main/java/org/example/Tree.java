@@ -5,10 +5,10 @@ import java.io.ObjectInput;
 import java.io.ObjectOutput;
 
 public class Tree extends Product{
-    private final String id;
+    private String id;
     private float height;
     private static int contId;
-    private static final String type = "TREE";
+    private static String type = "TREE";
 
     public Tree(String name, float price, float height) {
         super(name, price);

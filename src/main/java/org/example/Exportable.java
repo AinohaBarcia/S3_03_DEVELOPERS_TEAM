@@ -6,15 +6,15 @@ public class Exportable {
 
     public static FlowerShop importFlowerShop() {
 
-        FileInputStream fileInputStream2 = null;
+        FileInputStream fileInputStream = null;
         try {
-            fileInputStream2 = new FileInputStream("data.txt");
+            fileInputStream = new FileInputStream("data.txt");
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
         ObjectInputStream objectInputStream2 = null;
         try {
-            objectInputStream2 = new ObjectInputStream(fileInputStream2);
+            objectInputStream2 = new ObjectInputStream(fileInputStream);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -29,14 +29,14 @@ public class Exportable {
     }
     public static void exportFlowerShop(FlowerShop flowerShop) throws IOException {
         OutputStream fileOutputStream = new FileOutputStream("data.txt");
-        ObjectOutputStream objectOutputStream2 = new ObjectOutputStream(fileOutputStream);
+        ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
         try {
-            objectOutputStream2.writeObject(flowerShop);
+            objectOutputStream.writeObject(flowerShop);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
         try {
-            objectOutputStream2.close();
+            objectOutputStream.close();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
