@@ -5,13 +5,13 @@ public class Decoration extends Product{
         WOOD, PLASTIC
     }
 
-    private DecorationMaterial decorationMaterial;
-    private int contId;
+    private final DecorationMaterial decorationMaterial;
+    private static int contId;
     private static final String type = "DECORATION";
 
     public Decoration(String name, float price, DecorationMaterial decorationMaterial) {
         super(name, price);
-        this.id = generateId();
+        id = generateId();
         this.decorationMaterial = decorationMaterial;
         contId++;
     }
