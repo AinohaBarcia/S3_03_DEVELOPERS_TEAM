@@ -4,11 +4,11 @@ import java.util.Scanner;
 
 public class Menu {
 
-    public static int showMenu() {
+    public static byte showMenu() {
 
-        int option;
-        final int MIN = 0;
-        final int MAX = 14;
+        byte option;
+        final byte MIN = 0;
+        final byte MAX = 14;
 
         do {
             System.out.println("Application menu: \r\n"
@@ -26,7 +26,7 @@ public class Menu {
                     + "12. Show old purchases. \r\n"
                     + "13. View the total money earned from all sales. \r\n"
                     + "0. Exit app.");
-            option = Input.getInt("Choose the section you want to access:");
+            option = Input.getByte("Choose the section you want to access:");
             if (option < MIN || option > MAX) {
                 System.out.println("Choose a valid option");
             }
