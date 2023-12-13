@@ -18,16 +18,5 @@ public class FlowerShop {
     public void printStock (){
         productList.forEach(System.out::println);
     }
-    public void printQuantity (){
 
-        int  treeCount = (int) productList.stream().filter (object -> object instanceof Tree).count();
-            System.out.println("There are  " + treeCount + " trees");
-
-        int  flowersCount = (int) productList.stream().filter (object -> object instanceof Flower).count();
-            System.out.println("There are  " + flowersCount + "flowers");
-
-        int  decorationCount = (int) productList.stream().filter (object -> object instanceof Decoration).count();
-        System.out.println("There are  " + decorationCount + "decorations");
-
-    }
 }

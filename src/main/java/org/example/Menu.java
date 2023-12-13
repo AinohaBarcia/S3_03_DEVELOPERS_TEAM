@@ -1,5 +1,6 @@
 package org.example;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Menu {
@@ -34,10 +35,8 @@ public class Menu {
         return option;
     }
 
-
-    public static void choseMenu(/*FlowerShop.Array*/){ //Todo Implement the arrayList of the FlowerShop class.
+    public static void choseMenu(ArrayList<Product>productList, ArrayList<Ticket> ticketList){
         boolean exit = false;
-
         do {
             switch (showMenu()) {
                 case 1:
@@ -46,15 +45,15 @@ public class Menu {
                     break;
                 case 2:
                     System.out.println("Menu 2 - Add Tree.");
-                    //Todo create addTree Method.
+                    Methods.createTree(productList);
                     break;
                 case 3:
                     System.out.println("Menu 3 - Add Flower.");
-                    //Todo create addFlower Method.
+                    Methods.createFlower(productList);
                     break;
                 case 4:
                     System.out.println("Menu 4 - Add Decoration.");
-                    //Todo create addDecoration method.
+                    Methods.createDecoration(productList);
                     break;
                 case 5:
                     System.out.println("Menu 5 - Stock: Print all Trees, Flowers and Decoration.");
@@ -62,23 +61,27 @@ public class Menu {
                     break;
                 case 6:
                     System.out.println("Menu 6 - Remove a Tree item.");
-                    //Todo create removeTree method.
+                    Methods.deleteProduct(productList, Input.getString
+                            ("Write the name of the tree you want remove"));
                     break;
                 case 7:
                     System.out.println("Menu 7 - Remove a Flower item.");
-                    //Todo create removeFlower method.
+                    Methods.deleteProduct(productList, Input.getString
+                            ("Write the name of the flower you want remove"));
                     break;
                 case 8:
                     System.out.println("Menu 8 - Remove a Decoration item.");
-                    //Todo create removeDecoration method.
+                    Methods.deleteProduct(productList, Input.getString
+                            ("Write the name of the decoration you want remove"));
                     break;
                 case 9:
                     System.out.println("Menu 9 - Print stock with quantities.");
-                    //Todo create printStockwithQuantities method.
+                    Methods.printProductCount(productList);
                     break;
                 case 10:
                     System.out.println("Menu 10 - Print stock total value.");
                     //Todo create printStockTotalValues method.
+                    Methods.stockTotalValue(productList);
                     break;
                 case 11:
                     System.out.println("Menu 11 - Create a ticket with the total items.");
