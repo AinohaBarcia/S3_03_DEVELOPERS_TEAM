@@ -35,7 +35,11 @@ public class Decoration extends Product implements Externalizable {
 
     @Override
     public String toString(){
-        return id + " - " + type + " - " + name + " - " + decorationMaterial + " - " + price + "€.";
+        return "Id: " + id + "\r\n"
+                + "Type: " + type + "\r\n"
+                + "Product name: " + name + "\r\n"
+                + "Decoration material: " + decorationMaterial + "\r\n"
+                + "Price: " + price + "€.";
     }
     @Override
     public void writeExternal(ObjectOutput out) throws IOException {
