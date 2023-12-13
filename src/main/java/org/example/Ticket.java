@@ -23,6 +23,15 @@ public class Ticket {
         return id;
     }
 
+    public float sumTotalTicketProduct(){
+
+        float totalPrice = 0;
+        for(Product product:productList){
+            totalPrice+= product.getPrice();
+        };
+        return totalPrice;
+    }
+
     @Override
     public String toString() {
         return "Ticket{" +
