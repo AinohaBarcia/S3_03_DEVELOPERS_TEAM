@@ -8,7 +8,7 @@ public class Main {
 
         FlowerShop flowerShop = FlowerShop.getInstance("AJJ Flower Shop");
 
-        flowerShop.getProductList().add(new Decoration("Green tree", 12.35f, Decoration.DecorationMaterial.PLASTIC));
+        flowerShop.getProductList().add(new Decoration("Green tree", 12.35f, "Plastic"));
 
 
         try {
@@ -16,8 +16,6 @@ public class Main {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
-        //TODO SINGLETON PARA CREAR UNA FLORISTERIA
     }
 
 }
