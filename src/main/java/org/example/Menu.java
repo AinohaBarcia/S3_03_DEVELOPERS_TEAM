@@ -1,7 +1,7 @@
 package org.example;
 
 import java.util.ArrayList;
-import java.util.Scanner;
+
 
 public class Menu {
 
@@ -41,7 +41,7 @@ public class Menu {
             switch (showMenu()) {
                 case 1:
                     System.out.println("Menu 1 - Add Flower Shop.");
-                    //Todo create addFlowerShop method.
+                    Methods.createNewFlowerShop();
                     break;
                 case 2:
                     System.out.println("Menu 2 - Add Tree.");
@@ -80,7 +80,6 @@ public class Menu {
                     break;
                 case 10:
                     System.out.println("Menu 10 - Print stock total value.");
-                    //Todo create printStockTotalValues method.
                     Methods.stockTotalValue(productList);
                     break;
                 case 11:
