@@ -1,9 +1,24 @@
 package org.example;
 
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
+import java.io.IOException;
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
-        //TODO SINGLETON PARA CREAR UNA FLORISTERIA
+
+        FlowerShop flowerShop = new FlowerShop("AJJ Flower Shop");
+
+        flowerShop.getProductList().add(new Decoration("Green tree", 12.35f, Decoration.DecorationMaterial.PLASTIC));
+
+
+        try {
+            Exportable.exportFlowerShop(flowerShop);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
+
+        //TODO SINGLETON PARA CREAR UNA FLORISTERIA
     }
+
+}
+

@@ -1,9 +1,14 @@
 package org.example;
 
-public class Tree extends Product{ 
+import java.io.IOException;
+import java.io.ObjectInput;
+import java.io.ObjectOutput;
+
+public class Tree extends Product{
+    private String id;
     private float height;
     private static int contId;
-    private static final String type = "TREE";
+    private static String type = "TREE";
 
     public Tree(String name, float price, float height) {
         super(name, price);
@@ -30,5 +35,21 @@ public class Tree extends Product{
                 + "Product name: " + name + "\r\n"
                 + "Height: " + height + "cm" + "\r\n"
                 + "Price: " + price + "€.";
+    }
+
+    @Override
+    public void writeExternal(ObjectOutput out) throws IOException {
+        out.writeUTF(id);
+        out.writeUTF(name);
+        out.writeFloat(height);
+        out.writeUTF(type);
+    }
+
+    @Override
+    public void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {
+        id = in.readUTF();
+        name = in.readUTF();
+        height = in.readFloat();
+        type = in.readUTF();
     }
 }
