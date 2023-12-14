@@ -17,21 +17,18 @@ public class FlowerShop implements Externalizable {
         productList = new ArrayList<Product>();
         ticketList = new ArrayList<Ticket>();
     }
-    public void printStock (){
-        productList.forEach(System.out::println);
+
+    public String getName() {
+        return name;
+    }
+    public List <Product> getProductList() {
+        return productList;
+    }
+    public List <Ticket> getTicketList() {
+        return ticketList;
     }
 
 
-        int  treeCount = (int) productList.stream().filter (object -> object instanceof Tree).count();
-            System.out.println("There are  " + treeCount + " trees");
-
-        int  flowersCount = (int) productList.stream().filter (object -> object instanceof Flower).count();
-            System.out.println("There are  " + flowersCount + "flowers");
-
-        int  decorationCount = (int) productList.stream().filter (object -> object instanceof Decoration).count();
-        System.out.println("There are  " + decorationCount + "decorations");
-
-    }
 
     @Override
     public void writeExternal(ObjectOutput out) throws IOException {
