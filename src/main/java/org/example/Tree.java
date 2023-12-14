@@ -30,7 +30,11 @@ public class Tree extends Product{
 
     @Override
     public String toString(){
-        return id + " - " + type + " - " + name + " - " + height + "cm - " + price + "€.";
+        return "Id: " + id + "\r\n"
+                + "Type: " + type + "\r\n"
+                + "Product name: " + name + "\r\n"
+                + "Height: " + height + "cm" + "\r\n"
+                + "Price: " + price + "€.";
     }
 
     @Override

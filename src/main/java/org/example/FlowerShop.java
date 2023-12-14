@@ -17,19 +17,19 @@ public class FlowerShop implements Externalizable {
         productList = new ArrayList<Product>();
         ticketList = new ArrayList<Ticket>();
     }
-    public void printStock (){
+    public void printStock () {
         productList.forEach(System.out::println);
-    }
-    public void printQuantity (){
 
-        int  treeCount = (int) productList.stream().filter (object -> object instanceof Tree).count();
-            System.out.println("There are  " + treeCount + " trees");
 
-        int  flowersCount = (int) productList.stream().filter (object -> object instanceof Flower).count();
-            System.out.println("There are  " + flowersCount + "flowers");
+        int treeCount = (int) productList.stream().filter(object -> object instanceof Tree).count();
+        System.out.println("There are  " + treeCount + " trees");
 
-        int  decorationCount = (int) productList.stream().filter (object -> object instanceof Decoration).count();
+        int flowersCount = (int) productList.stream().filter(object -> object instanceof Flower).count();
+        System.out.println("There are  " + flowersCount + "flowers");
+
+        int decorationCount = (int) productList.stream().filter(object -> object instanceof Decoration).count();
         System.out.println("There are  " + decorationCount + "decorations");
+
 
     }
 
@@ -47,4 +47,7 @@ public class FlowerShop implements Externalizable {
         ticketList = (ArrayList<Ticket>) in.readObject();
 
     }
+
 }
+
+
