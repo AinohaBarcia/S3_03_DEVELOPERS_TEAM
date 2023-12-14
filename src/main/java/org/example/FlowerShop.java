@@ -11,11 +11,19 @@ public class FlowerShop implements Externalizable {
     private String name;
     private List <Product> productList;
     private List <Ticket> ticketList;
+    private static FlowerShop instance;
 
     public FlowerShop(String name) {
         this.name = name;
         productList = new ArrayList<Product>();
         ticketList = new ArrayList<Ticket>();
+    }
+
+    public static FlowerShop getInstance(String name){
+        if(instance == null){
+            instance = new FlowerShop(name);
+        }
+        return instance;
     }
 
     public String getName() {
