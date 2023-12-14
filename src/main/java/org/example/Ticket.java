@@ -16,7 +16,6 @@ public class Ticket implements Externalizable {
 
     public Ticket() {
         this.id = id + count;
-        this.productList = productList;
         count ++;
         productList = new ArrayList<>();
     }
