@@ -9,22 +9,16 @@ import java.util.ArrayList;
 public class Ticket implements Externalizable {
 
     private int id;
-
     private ArrayList<Product> productList;
     public static int count;
 
+
+
     public Ticket() {
-    private ArrayList<Product> productList = new ArrayList<>();
-
-    public static int count;
-
-    public Ticket(ArrayList<Product> productList) {
-
         this.id = id + count;
         this.productList = productList;
         count ++;
         productList = new ArrayList<>();
-
     }
 
     public ArrayList<Product> getProductList() { //Todo confirmar nombre de clase
