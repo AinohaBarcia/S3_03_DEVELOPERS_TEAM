@@ -5,14 +5,15 @@ import java.util.ArrayList;
 public class Ticket {
 
     private int id;
-    private ArrayList<Product> productList = new ArrayList<>(); //Todo confirmar nombre de clase
-
+    private ArrayList<Product> productList;
     public static int count;
 
-    public Ticket(ArrayList<Product> productList) { //Todo confirmar nombre de clase
+    public Ticket() {
         this.id = id + count;
         this.productList = productList;
         count ++;
+        productList = new ArrayList<>();
+
     }
 
     public ArrayList<Product> getProductList() { //Todo confirmar nombre de clase
