@@ -18,10 +18,10 @@ public class Methods {
     public static void createDecoration(List<Product>productList){
         char letterMaterial = Input.getString("Decoration material: Wood or Plastic?").toUpperCase().charAt(0);
         if (letterMaterial == 'P'){
-            Decoration.DecorationMaterial plastic = Decoration.DecorationMaterial.PLASTIC;
+            String plastic = "Plastic";
             productList.add(new Decoration(Input.getString("Decoration name:"), Input.getFloat("Price:"), plastic));
         }else if (letterMaterial == 'W'){
-            Decoration.DecorationMaterial wood = Decoration.DecorationMaterial.WOOD;
+            String wood = "Wood";
             productList.add(new Decoration(Input.getString("Decoration name:"), Input.getFloat("Price:"), wood));
         }else{
             System.out.println("Wrong material.");
