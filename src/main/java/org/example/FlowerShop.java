@@ -17,6 +17,7 @@ public class FlowerShop implements Externalizable {
         productList = new ArrayList<Product>();
         ticketList = new ArrayList<Ticket>();
     }
+
     public void printStock () {
         productList.forEach(System.out::println);
 
@@ -32,6 +33,19 @@ public class FlowerShop implements Externalizable {
 
 
     }
+
+
+    public String getName() {
+        return name;
+    }
+    public List <Product> getProductList() {
+        return productList;
+    }
+    public List <Ticket> getTicketList() {
+        return ticketList;
+    }
+
+
 
     @Override
     public void writeExternal(ObjectOutput out) throws IOException {

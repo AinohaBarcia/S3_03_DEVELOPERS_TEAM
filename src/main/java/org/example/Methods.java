@@ -1,10 +1,14 @@
 package org.example;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
 public class Methods {
 
+    public static void createNewFlowerShop (){
+        FlowerShop flowerShop1 = new FlowerShop (Input.getString("What's de Flower shop name?"));
+    }
     public static void createTree(List<Product> productList){
         productList.add(new Tree(Input.getString("Tree name:"), Input.getFloat("Price:"), Input.getFloat("Height:")));
     }
@@ -23,6 +27,17 @@ public class Methods {
             System.out.println("Wrong material.");
         }
     }
+//todo crear stockPrintMethod
+    public static void deleteProduct(List<Product> productList, String name){
+        int position = searchProduct(productList,name);
+
+        if (position>=0){
+            productList.remove(position);
+            System.out.println("The product " + name + " has been deleted");
+        }else {
+            System.out.println("The product " + name + " isn't in the list");
+        }
+    }
 
     public static void printProductCount(List<Product> productList){
         int  treeCount = (int) productList.stream().filter (object -> object instanceof Tree).count();
@@ -35,18 +50,6 @@ public class Methods {
         System.out.println("There are  " + decorationCount + "decorations");
 
     }
-  
-    public static void deleteProduct(List<Product> productList, String name){
-        int position = searchProduct(productList,name);
-
-        if (position>=0){
-            productList.remove(position);
-            System.out.println("The product " + name + " has been deleted");
-        }else {
-            System.out.println("The product " + name + " isn't in the list");
-        }
-    }
-  
     public static void stockTotalValue(List<Product>productList){
         float valorTotal = (float) productList.stream()
                 .mapToDouble(Product::getPrice)
@@ -54,7 +57,19 @@ public class Methods {
 
         System.out.println("The total value of the stock is : " + valorTotal + " €");
     }
-  
+    public static void createTicketMethod (){
+        Ticket ticket = new Ticket();
+    }
+    public static void showOldPurchases (List<Ticket> ticketList){
+        ticketList.forEach(System.out::println);
+    }
+   public static void showTotalEarnings (List<Ticket>ticketList){
+       double sumaPrices= ticketList.stream()
+               .mapToDouble(objeto -> objeto.sumTotalTicketProduct())
+               .sum();
+       System.out.println("The total amount of the all tickets is: " + sumaPrices+ " €");
+   }
+
     public static int searchProduct (List<Product> productList, String name){
 
         boolean found = false;
