@@ -1,6 +1,16 @@
-S3.3 DEVELOPERS TEAM
+# S3.3 Developers Team
 
 We need to create a program to manage the product catalog of a Flower Shop. At level 1, it handles persistence in a TXT file.
+
+
+## Team
+
+- [@AinohaBarcia](https://github.com/AinohaBarcia)
+- [@joseRodriguezCubero](https://github.com/joseRodriguezCubero)
+- [@judithgispert](https://github.com/judithgispert)
+
+
+## Flower Shop
 
 This program must have the following requirements:
 - In a flower shop, which has a name, we have trees, flowers and decorations.
@@ -26,3 +36,4 @@ The Main must include, at least, the following functionalities:
 - Create purchase tickets with multiple objects.
 - Show a list of old purchases.
 - View the total money earned from all sales.
+
