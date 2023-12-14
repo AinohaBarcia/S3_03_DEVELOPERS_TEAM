@@ -1,10 +1,13 @@
 package org.example;
 
 import java.io.IOException;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        FlowerShop flowerShop = new FlowerShop("florist");
+        FlowerShop flowerShop = new FlowerShop("AJJ Flower Shop");
+
+        
 
 
         try {
