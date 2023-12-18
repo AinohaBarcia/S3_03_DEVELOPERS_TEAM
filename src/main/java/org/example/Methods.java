@@ -3,6 +3,7 @@ package org.example;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.concurrent.Flow;
 
 public class Methods {
 
@@ -63,30 +64,19 @@ public class Methods {
     }
     public static void createTicketMethod (FlowerShop flowerShop){
         Ticket ticket = new Ticket();
-        boolean exit = false;
-        do {
-            int menu = Input.getInt("1. Add product. \r\n"
-                    + "0. Exit. \r\n"
-                    + "Choose option:");
-            switch (menu){
-                case 1:
-                    String name = Input.getString("Name product:");
-                    int position = searchProduct(flowerShop.getProductList(), name);
-                    if (position >= 0){
-                       ticket.getProductList().add(flowerShop.getProductList().get(position));
-                       flowerShop.getProductList().remove(position);
-                    } else{
-                        System.out.println("The product " + name + " doesn't exist.");
-                    }
-                    break;
-                case 0:
-                    exit = true;
-                    break;
-            }
-        }while (!exit);
+        Menu.chooseMenuTicket(flowerShop, ticket);
+        ticket.sumTotalTicketProduct();
+    }
 
-        System.out.println("Ticket:");
-        ticket.getProductList().forEach(System.out::println);
+    public static void addProductTicket(FlowerShop flowerShop, Ticket ticket){
+        String name = Input.getString("Name product:");
+        int position = searchProduct(flowerShop.getProductList(), name);
+        if (position >= 0){
+            ticket.getProductList().add(flowerShop.getProductList().get(position));
+            flowerShop.getProductList().remove(position);
+        } else{
+            System.out.println("The product " + name + " doesn't exist.");
+        }
     }
     public static void showOldPurchases (List<Ticket> ticketList){
         ticketList.forEach(System.out::println);
