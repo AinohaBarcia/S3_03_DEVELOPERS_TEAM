@@ -61,8 +61,32 @@ public class Methods {
 
         System.out.println("The total value of the stock is : " + valorTotal + " €");
     }
-    public static void createTicketMethod (){
+    public static void createTicketMethod (FlowerShop flowerShop){
         Ticket ticket = new Ticket();
+        boolean exit = false;
+        do {
+            int menu = Input.getInt("1. Add product. \r\n"
+                    + "0. Exit. \r\n"
+                    + "Choose option:");
+            switch (menu){
+                case 1:
+                    String name = Input.getString("Name product:");
+                    int position = searchProduct(flowerShop.getProductList(), name);
+                    if (position >= 0){
+                       ticket.getProductList().add(flowerShop.getProductList().get(position));
+                       flowerShop.getProductList().remove(position);
+                    } else{
+                        System.out.println("The product " + name + " doesn't exist.");
+                    }
+                    break;
+                case 0:
+                    exit = true;
+                    break;
+            }
+        }while (!exit);
+
+        System.out.println("Ticket:");
+        ticket.getProductList().forEach(System.out::println);
     }
     public static void showOldPurchases (List<Ticket> ticketList){
         ticketList.forEach(System.out::println);
