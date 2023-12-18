@@ -34,8 +34,15 @@ public class Methods {
             System.out.println("Wrong material.");
         }
     }
+    public static void printStock(List<Product> productList){
+        System.out.println("TREES:");
+        productList.stream().filter (object -> object instanceof Tree).forEach(System.out::println);
+        System.out.println("FLOWERS:");
+        productList.stream().filter (object -> object instanceof Flower).forEach(System.out::println);
+        System.out.println("DECORATION:");
+        productList.stream().filter (object -> object instanceof Decoration).forEach(System.out::println);
+    }
 
-//todo crear stockPrintMethod
     public static void deleteProduct(List<Product> productList, String name){
         int position = searchProduct(productList,name);
 
@@ -49,13 +56,13 @@ public class Methods {
 
     public static void printProductCount(List<Product> productList){
         int  treeCount = (int) productList.stream().filter (object -> object instanceof Tree).count();
-        System.out.println("There are  " + treeCount + " trees");
+        System.out.println("There are  " + treeCount + " trees.");
 
         int  flowersCount = (int) productList.stream().filter (object -> object instanceof Flower).count();
-        System.out.println("There are  " + flowersCount + "flowers");
+        System.out.println("There are  " + flowersCount + " flowers.");
 
         int  decorationCount = (int) productList.stream().filter (object -> object instanceof Decoration).count();
-        System.out.println("There are  " + decorationCount + "decorations");
+        System.out.println("There are  " + decorationCount + " decorations.");
 
     }
     public static void stockTotalValue(List<Product>productList){
@@ -82,8 +89,8 @@ public class Methods {
             System.out.println("The product " + name + " doesn't exist.");
         }
     }
-    public static void showOldPurchases (List<Ticket> ticketList){
-        ticketList.forEach(System.out::println);
+    public static void showOldPurchases (FlowerShop flowerShop){
+        flowerShop.getTicketList().forEach(System.out::println);
     }
    public static void showTotalEarnings (List<Ticket>ticketList){
        double sumaPrices= ticketList.stream()
@@ -109,10 +116,6 @@ public class Methods {
         }
 
         return position;
-    }
-
-    public static void showTicketList(List<Ticket>ticketList){
-        ticketList.forEach(System.out::println);
     }
 }
 
