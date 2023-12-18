@@ -19,6 +19,7 @@ public class FlowerShop implements Externalizable {
         ticketList = new ArrayList<Ticket>();
     }
 
+
     public static FlowerShop getInstance(String name){
         if(instance == null){
             instance = new FlowerShop(name);
@@ -36,8 +37,6 @@ public class FlowerShop implements Externalizable {
         return ticketList;
     }
 
-
-
     @Override
     public void writeExternal(ObjectOutput out) throws IOException {
         out.writeUTF(name);
@@ -54,3 +53,5 @@ public class FlowerShop implements Externalizable {
     }
 
 }
+
+

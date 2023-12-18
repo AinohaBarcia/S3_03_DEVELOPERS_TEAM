@@ -12,15 +12,15 @@ public class Exportable {
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
-        ObjectInputStream objectInputStream2 = null;
+        ObjectInputStream objectInputStream = null;
         try {
-            objectInputStream2 = new ObjectInputStream(fileInputStream);
+            objectInputStream = new ObjectInputStream(fileInputStream);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
         FlowerShop flowerShop;
         try {
-            flowerShop = (FlowerShop) objectInputStream2.readObject();
+            flowerShop = (FlowerShop) objectInputStream.readObject();
         } catch (IOException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
