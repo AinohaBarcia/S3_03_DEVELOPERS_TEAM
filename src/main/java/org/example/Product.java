@@ -11,6 +11,8 @@ public abstract class Product implements Externalizable {
         this.price = price;
 
     }
+    public Product() {
+    }
 
     public String getName(){return name;}
     public float getPrice(){return price;}

@@ -8,20 +8,19 @@ import java.io.ObjectOutput;
 public class Decoration extends Product implements Externalizable {
 
 
-    enum DecorationMaterial {
-        WOOD, PLASTIC
-    }
-
     private String id;
-    private DecorationMaterial decorationMaterial;
-    private static int contId;
-    private static final String type = "DECORATION";
 
-    public Decoration(String name, float price, DecorationMaterial decorationMaterial) {
+    private static int contId;
+    private static final String type = "WOOD";
+
+    public Decoration(String name, float price) {
         super(name, price);
         id = generateId();
-        this.decorationMaterial = decorationMaterial;
         contId++;
+    }
+
+    public Decoration() {
+        super();
     }
 
     public String id(){return id;}
@@ -38,14 +37,14 @@ public class Decoration extends Product implements Externalizable {
         return "Id: " + id + "\r\n"
                 + "Type: " + type + "\r\n"
                 + "Product name: " + name + "\r\n"
-                + "Decoration material: " + decorationMaterial + "\r\n"
+                + "Decoration material: " +   "\r\n"
                 + "Price: " + price + "€.";
     }
     @Override
     public void writeExternal(ObjectOutput out) throws IOException {
         out.writeUTF(id);
         out.writeUTF(name);
-        out.writeObject(decorationMaterial);  // Escribir el enum directamente
+         // Escribir el enum directamente
         out.writeFloat(price);
     }
 
@@ -53,7 +52,7 @@ public class Decoration extends Product implements Externalizable {
     public void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {
         id = in.readUTF();
         name = in.readUTF();
-        decorationMaterial = (DecorationMaterial) in.readObject();  // Leer el enum directamente
+        // Leer el enum directamente
         price = in.readFloat();
     }
 }
