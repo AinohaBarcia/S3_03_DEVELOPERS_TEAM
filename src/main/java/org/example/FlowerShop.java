@@ -11,6 +11,7 @@ public class FlowerShop implements Externalizable {
     private String name;
     private List <Product> productList;
     private List <Ticket> ticketList;
+    private static FlowerShop instance;
 
     public FlowerShop(String name) {
         this.name = name;
@@ -18,22 +19,13 @@ public class FlowerShop implements Externalizable {
         ticketList = new ArrayList<Ticket>();
     }
 
-    public void printStock () {
-        productList.forEach(System.out::println);
 
-
-        int treeCount = (int) productList.stream().filter(object -> object instanceof Tree).count();
-        System.out.println("There are  " + treeCount + " trees");
-
-        int flowersCount = (int) productList.stream().filter(object -> object instanceof Flower).count();
-        System.out.println("There are  " + flowersCount + "flowers");
-
-        int decorationCount = (int) productList.stream().filter(object -> object instanceof Decoration).count();
-        System.out.println("There are  " + decorationCount + "decorations");
-
-
+    public static FlowerShop getInstance(String name){
+        if(instance == null){
+            instance = new FlowerShop(name);
+        }
+        return instance;
     }
-
 
     public String getName() {
         return name;
@@ -44,8 +36,6 @@ public class FlowerShop implements Externalizable {
     public List <Ticket> getTicketList() {
         return ticketList;
     }
-
-
 
     @Override
     public void writeExternal(ObjectOutput out) throws IOException {

@@ -7,7 +7,7 @@ import java.util.Locale;
 public class Methods {
 
     public static void createNewFlowerShop (){
-        FlowerShop flowerShop1 = new FlowerShop (Input.getString("What's de Flower shop name?"));
+        FlowerShop flowerShop1 = FlowerShop.getInstance(Input.getString("What's de Flower shop name?"));
     }
     public static void createTree(List<Product> productList){
         productList.add(new Tree(Input.getString("Tree name:"), Input.getFloat("Price:"), Input.getFloat("Height:")));
@@ -18,10 +18,10 @@ public class Methods {
     public static void createDecoration(List<Product>productList){
         char letterMaterial = Input.getString("Decoration material: Wood or Plastic?").toUpperCase().charAt(0);
         if (letterMaterial == 'P'){
-            Decoration.DecorationMaterial plastic = Decoration.DecorationMaterial.PLASTIC;
+            String plastic = "Plastic";
             productList.add(new Decoration(Input.getString("Decoration name:"), Input.getFloat("Price:"), plastic));
         }else if (letterMaterial == 'W'){
-            Decoration.DecorationMaterial wood = Decoration.DecorationMaterial.WOOD;
+            String wood = "Wood";
             productList.add(new Decoration(Input.getString("Decoration name:"), Input.getFloat("Price:"), wood));
         }else{
             System.out.println("Wrong material.");

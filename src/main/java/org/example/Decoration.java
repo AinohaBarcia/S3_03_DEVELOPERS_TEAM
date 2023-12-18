@@ -8,16 +8,12 @@ import java.io.ObjectOutput;
 public class Decoration extends Product implements Externalizable {
 
 
-    enum DecorationMaterial {
-        WOOD, PLASTIC
-    }
-
     private String id;
-    private DecorationMaterial decorationMaterial;
+    private String decorationMaterial;
     private static int contId;
     private static final String type = "DECORATION";
 
-    public Decoration(String name, float price, DecorationMaterial decorationMaterial) {
+    public Decoration(String name, float price, String decorationMaterial) {
         super(name, price);
         id = generateId();
         this.decorationMaterial = decorationMaterial;
@@ -45,7 +41,7 @@ public class Decoration extends Product implements Externalizable {
     public void writeExternal(ObjectOutput out) throws IOException {
         out.writeUTF(id);
         out.writeUTF(name);
-        out.writeObject(decorationMaterial);  // Escribir el enum directamente
+        out.writeUTF(decorationMaterial);
         out.writeFloat(price);
     }
 
@@ -53,7 +49,7 @@ public class Decoration extends Product implements Externalizable {
     public void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {
         id = in.readUTF();
         name = in.readUTF();
-        decorationMaterial = (DecorationMaterial) in.readObject();  // Leer el enum directamente
+        decorationMaterial = in.readUTF();
         price = in.readFloat();
     }
 }
