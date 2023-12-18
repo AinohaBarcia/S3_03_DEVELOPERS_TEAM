@@ -28,13 +28,13 @@ public class Ticket implements Externalizable {
         return id;
     }
 
-    public float sumTotalTicketProduct(){
+    public float void sumTotalTicketProduct(){
 
         float totalPrice = 0;
         for(Product product:productList){
             totalPrice+= product.getPrice();
         };
-        return totalPrice;
+        System.out.println("Total price: " +totalPrice);
     }
 
     @Override
