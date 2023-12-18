@@ -14,31 +14,9 @@ public class Main {
     }
 }
 
-        /*try {
-            Exportable.exportFlowerShop(flowerShop);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
-}
+        /*In order to run the application for the first time its necessary to create an empty data.txt
+        1- Delete data.txt
+        2- Introduce this line: FlowerShop flowershop = null;
+        3- You need to comment all the lines except Exportable.exportFlowerShop(flowerShop)
 
-
-       /* OutputStream fileOutputStream2 = new FileOutputStream("exported.ser");
-        ObjectOutputStream objectOutputStream2 = new ObjectOutputStream(fileOutputStream2);
-        objectOutputStream2.writeObject(flowerShop);
-        objectOutputStream2.close();
-        fileOutputStream2.close();
-
-
-
-        //Import
-        FileInputStream fileInputStream2 = new FileInputStream("exported.ser");
-        ObjectInputStream objectInputStream2 = new ObjectInputStream(fileInputStream2);
-        FlowerShop flowerShop1 = (FlowerShop) objectInputStream2.readObject();
-        System.out.println(flowerShop1);
-
-
-    }
-
-}
 */
