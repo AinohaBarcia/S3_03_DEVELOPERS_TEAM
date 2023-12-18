@@ -9,7 +9,7 @@ public class Menu {
 
         byte option;
         final byte MIN = 0;
-        final byte MAX = 13;
+        final byte MAX = 12;
 
         do {
             System.out.println("Application menu: \r\n"
@@ -79,7 +79,7 @@ public class Menu {
                     break;
                 case 10:
                     System.out.println("Menu 10 - Create a ticket with the total items.");
-                    Methods.createTicketMethod();
+                    Methods.createTicketMethod(flowerShop);
                     break;
                 case 11:
                     System.out.println("Menu 11 - Show old purchases.");
@@ -89,13 +89,37 @@ public class Menu {
                     System.out.println("Menu 12 - View the total money earned from all sales.");
                     Methods.showTotalEarnings(flowerShop.getTicketList());
                     break;
-                case 13:
+                case 0:
                     System.out.println("Thank you for use the app.");
                     exit = true;
                     break;
             }
         } while (!exit);
 
+    }
+
+    public static int menuTicket(){
+        int menuOption = Input.getInt("1. Add product. \r\n"
+                + "0. Exit. \r\n"
+                + "Choose option:");
+        return menuOption;
+    }
+
+    public static void chooseMenuTicket(FlowerShop flowerShop, Ticket ticket){
+        boolean exit = false;
+        do {
+            int menu = menuTicket();
+            switch (menu){
+                case 1:
+                    Methods.addProductTicket(flowerShop, ticket);
+                    break;
+                case 0:
+                    exit = true;
+                    break;
+            }
+        }while (!exit);
+        System.out.println("Ticket:");
+        ticket.getProductList().forEach(System.out::println);
     }
 
 
