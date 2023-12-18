@@ -6,9 +6,13 @@ import java.io.*;
 public class Main {
     public static void main(String[] args) throws IOException, ClassNotFoundException {
 
-        FlowerShop flowerShop = new FlowerShop("AJJ Flower Shop");
+        FlowerShop flowerShop = FlowerShop.getInstance("AJJ Flower Shop");
 
+<<<<<<< HEAD
         flowerShop.getProductList().add(new Decoration("Green tree", 12.35f));
+=======
+        flowerShop.getProductList().add(new Decoration("Green tree", 12.35f, "Plastic"));
+>>>>>>> 1f92d3ed70963309f4571310ab9dfac7e0e8a353
 
 
 
@@ -24,6 +28,7 @@ public class Main {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+<<<<<<< HEAD
 */
 
        /* OutputStream fileOutputStream2 = new FileOutputStream("exported.ser");
@@ -40,6 +45,8 @@ public class Main {
         FlowerShop flowerShop1 = (FlowerShop) objectInputStream2.readObject();
         System.out.println(flowerShop1);
         //TODO SINGLETON PARA CREAR UNA FLORISTERIA
+=======
+>>>>>>> 1f92d3ed70963309f4571310ab9dfac7e0e8a353
     }
 
 }
