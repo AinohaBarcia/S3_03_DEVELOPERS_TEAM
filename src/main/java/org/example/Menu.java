@@ -87,7 +87,7 @@ public class Menu {
                     break;
                 case 12:
                     System.out.println("Menu 12 - View the total money earned from all sales.");
-                    Methods.showTotalEarnings(flowerShop.getTicketList());
+                    Methods.showTotalEarnings(flowerShop);
                     break;
                 case 0:
                     System.out.println("Thank you for use the app.");

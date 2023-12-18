@@ -96,19 +96,12 @@ public class Methods {
             flowerShop.getTicketList().forEach(System.out::println);
         }
     }
-   public static void showTotalEarnings (FlowerShop flowerShop){
-       double sumaPrices= ticketList.stream()
-               .mapToDouble(objeto -> objeto.sumTotalTicketProduct())
-               .sum();
-       flowerShop.getTicketList()
-       System.out.println("The total amount of the all tickets is: " + sumaPrices + " €");
-   }
-    public float sumTotalTicket(Ticket ticket) {
-        for (Product product : ticketList) {
-            ticket.setTotalPrice += ticket.getTotalPrice;
-        }
-        ;
-        return totalPrice;
+   
+    public static void showTotalEarnings(FlowerShop flowerShop) {
+       float sumaPrices = 0;
+        for (int cont = 0; cont <= flowerShop.getTicketList().size(); cont++)
+            sumaPrices += flowerShop.getTicketList().get(cont).getTotalPrice();
+        System.out.println("The total amount of the all tickets is: " + sumaPrices + " €");
     }
 
     public static int searchProduct (List<Product> productList, String name){
