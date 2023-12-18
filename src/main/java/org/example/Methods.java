@@ -65,7 +65,8 @@ public class Methods {
     public static void createTicketMethod (FlowerShop flowerShop){
         Ticket ticket = new Ticket();
         Menu.chooseMenuTicket(flowerShop, ticket);
-        ticket.sumTotalTicketProduct();
+        float totalPrice = ticket.sumTotalTicketProduct();
+        System.out.println("Total price: " +totalPrice);
     }
 
     public static void addProductTicket(FlowerShop flowerShop, Ticket ticket){
