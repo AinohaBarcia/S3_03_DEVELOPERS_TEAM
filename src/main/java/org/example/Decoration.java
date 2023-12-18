@@ -8,10 +8,6 @@ import java.io.ObjectOutput;
 public class Decoration extends Product implements Externalizable {
 
     private String id;
-
- public Decoration(String name, float price) {
-    }
-
     private String decorationMaterial;
     private static int contId;
     private static final String type = "DECORATION";
@@ -20,11 +16,10 @@ public class Decoration extends Product implements Externalizable {
         super(name, price);
         id = generateId();
         contId++;
+        this.decorationMaterial = decorationMaterial;
     }
 
-    public Decoration() {
-        super();
-    }
+    public Decoration() { }
 
     public String id(){return id;}
     public String getType(){return type;}

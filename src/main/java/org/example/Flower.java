@@ -17,8 +17,7 @@ public class Flower extends Product{
         contId++;
     }
 
-    public Flower() {
-    }
+    public Flower() { }
 
     public String id(){return id;}
     public String getColour(){return colour;}
