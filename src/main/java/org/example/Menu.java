@@ -120,6 +120,7 @@ public class Menu {
         }while (!exit);
         System.out.println("Ticket:");
         ticket.getProductList().forEach(System.out::println);
+        flowerShop.getTicketList().add(ticket);
     }
 
 
