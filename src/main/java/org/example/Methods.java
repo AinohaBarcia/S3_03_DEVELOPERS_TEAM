@@ -15,10 +15,9 @@ public class Methods {
     public static void createFlower(List<Product>productList){
         productList.add(new Flower(Input.getString("Flower name:"), Input.getFloat("Price:"), Input.getString("Colour:")));
     }
-<<<<<<< HEAD
 
 
-=======
+
     public static void createDecoration(List<Product>productList){
         char letterMaterial = Input.getString("Decoration material: Wood or Plastic?").toUpperCase().charAt(0);
         if (letterMaterial == 'P'){
@@ -31,7 +30,7 @@ public class Methods {
             System.out.println("Wrong material.");
         }
     }
->>>>>>> 1f92d3ed70963309f4571310ab9dfac7e0e8a353
+
 //todo crear stockPrintMethod
     public static void deleteProduct(List<Product> productList, String name){
         int position = searchProduct(productList,name);
