@@ -11,12 +11,14 @@ public class Ticket implements Externalizable {
     private int id;
     private ArrayList<Product> productList;
     public static int count;
+    private int totalPrice;
 
 
     public Ticket() {
         this.id = id + count;
         count++;
         productList = new ArrayList<>();
+        totalPrice=0;
     }
 
     public ArrayList<Product> getProductList() { //Todo confirmar nombre de clase
@@ -27,9 +29,16 @@ public class Ticket implements Externalizable {
         return id;
     }
 
+    public int getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(int totalPrice) {
+        this.totalPrice = totalPrice;
+    }
+
     public float sumTotalTicketProduct() {
 
-        float totalPrice = 0;
         for (Product product : productList) {
             totalPrice += product.getPrice();
         }
@@ -40,10 +49,11 @@ public class Ticket implements Externalizable {
 
     @Override
     public String toString() {
-        return "Ticket{" +
-                "id=" + id +
-                ", productList=" + productList +
-                '}';
+        return "Ticket" +
+                "id =" + id +
+                ", productList =" + productList +
+                ", total price = " + totalPrice +
+                "€";
     }
 
     @Override
