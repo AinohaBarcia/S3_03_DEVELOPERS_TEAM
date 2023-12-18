@@ -48,11 +48,11 @@ public class Menu {
                     break;
                 case 3:
                     System.out.println("Menu 3 - Add Decoration.");
-
+                    Methods.createDecoration(flowerShop.getProductList());
                     break;
                 case 4:
                     System.out.println("Menu 4 - Stock: Print all Trees, Flowers and Decoration.");
-
+                    Methods.printStock(flowerShop.getProductList());
                     break;
                 case 5:
                     System.out.println("Menu 5 - Remove a Tree item.");
@@ -83,7 +83,7 @@ public class Menu {
                     break;
                 case 11:
                     System.out.println("Menu 11 - Show old purchases.");
-                    Methods.showOldPurchases(flowerShop.getTicketList());
+                    Methods.showOldPurchases(flowerShop);
                     break;
                 case 12:
                     System.out.println("Menu 12 - View the total money earned from all sales.");
