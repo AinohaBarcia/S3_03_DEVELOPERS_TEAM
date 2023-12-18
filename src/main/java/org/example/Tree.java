@@ -16,6 +16,8 @@ public class Tree extends Product{
         this.height = height;
         contId++;
     }
+    public Tree() {
+    }
 
     public String id(){return id;}
     public float getHeight(){return height;}
