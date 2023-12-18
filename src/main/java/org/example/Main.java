@@ -6,8 +6,13 @@ import java.io.*;
 public class Main {
     public static void main(String[] args) throws IOException, ClassNotFoundException {
 
+        Methods.createNewFlowerShop();
+        Menu.choseMenu();
 
-        try {
+    }
+}
+
+        /*try {
             Exportable.exportFlowerShop(flowerShop);
         } catch (IOException e) {
             throw new RuntimeException(e);
