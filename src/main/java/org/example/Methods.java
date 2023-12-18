@@ -96,7 +96,7 @@ public class Methods {
             flowerShop.getTicketList().forEach(System.out::println);
         }
     }
-   
+
     public static void showTotalEarnings(FlowerShop flowerShop) {
        float sumaPrices = 0;
         for (int cont = 0; cont <= flowerShop.getTicketList().size(); cont++)
