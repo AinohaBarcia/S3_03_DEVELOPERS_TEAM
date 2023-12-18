@@ -76,7 +76,7 @@ public class Methods {
         Ticket ticket = new Ticket();
         Menu.chooseMenuTicket(flowerShop, ticket);
         float totalPrice = ticket.sumTotalTicketProduct();
-        System.out.println("Total price: " +totalPrice);
+        System.out.println("Total price: " + totalPrice);
     }
 
     public static void addProductTicket(FlowerShop flowerShop, Ticket ticket){
@@ -90,14 +90,26 @@ public class Methods {
         }
     }
     public static void showOldPurchases (FlowerShop flowerShop){
-        flowerShop.getTicketList().forEach(System.out::println);
+        if(flowerShop.getTicketList().isEmpty()){
+            System.out.println("The flower shop doesn't have tickets.");
+        } else {
+            flowerShop.getTicketList().forEach(System.out::println);
+        }
     }
-   public static void showTotalEarnings (List<Ticket>ticketList){
+   public static void showTotalEarnings (FlowerShop flowerShop){
        double sumaPrices= ticketList.stream()
                .mapToDouble(objeto -> objeto.sumTotalTicketProduct())
                .sum();
-       System.out.println("The total amount of the all tickets is: " + sumaPrices+ " €");
+       flowerShop.getTicketList()
+       System.out.println("The total amount of the all tickets is: " + sumaPrices + " €");
    }
+    public float sumTotalTicket(Ticket ticket) {
+        for (Product product : ticketList) {
+            ticket.setTotalPrice += ticket.getTotalPrice;
+        }
+        ;
+        return totalPrice;
+    }
 
     public static int searchProduct (List<Product> productList, String name){
 
