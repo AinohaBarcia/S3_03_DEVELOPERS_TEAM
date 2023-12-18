@@ -7,8 +7,11 @@ import java.util.concurrent.Flow;
 
 public class Methods {
 
-    public static void createNewFlowerShop (){
-        FlowerShop flowerShop1 = FlowerShop.getInstance(Input.getString("What's de Flower shop name?"));
+    public static FlowerShop createNewFlowerShop (FlowerShop flowerShop){
+        if (flowerShop == null) {
+            return FlowerShop.getInstance(Input.getString("What's de Flower shop name?"));
+        }
+        return flowerShop;
     }
     public static void createTree(List<Product> productList){
         productList.add(new Tree(Input.getString("Tree name:"), Input.getFloat("Price:"), Input.getFloat("Height:")));

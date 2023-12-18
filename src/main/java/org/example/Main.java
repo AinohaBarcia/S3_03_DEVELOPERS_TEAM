@@ -6,8 +6,10 @@ import java.io.*;
 public class Main {
     public static void main(String[] args) throws IOException, ClassNotFoundException {
 
-        Methods.createNewFlowerShop();
-        Menu.choseMenu();
+        FlowerShop flowerShop = Exportable.importFlowerShop();
+        flowerShop = Methods.createNewFlowerShop(flowerShop);
+        Menu.choseMenu(flowerShop);
+        Exportable.exportFlowerShop(flowerShop);
 
     }
 }
@@ -39,4 +41,4 @@ public class Main {
     }
 
 }
-
+*/
