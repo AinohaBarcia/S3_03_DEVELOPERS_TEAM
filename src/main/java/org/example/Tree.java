@@ -17,6 +17,7 @@ public class Tree extends Product{
         contId++;
     }
     public Tree() {
+        super();
     }
 
     public String id(){return id;}
