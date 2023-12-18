@@ -113,7 +113,7 @@ public class Methods {
 
         while (index <productList.size() && !found) {
 
-            if (productList.get(index).getName().equals(name)) {
+            if (productList.get(index).getName().equalsIgnoreCase(name)) {
                 position = index;
                 found = true;
             }
