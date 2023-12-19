@@ -142,9 +142,13 @@ public class Methods {
 
     public static void showTotalEarnings(FlowerShop flowerShop) {
        float sumaPrices = 0;
-        for (int cont = 0; cont <= flowerShop.getTicketList().size(); cont++)
-            sumaPrices += flowerShop.getTicketList().get(cont).getTotalPrice();
-        System.out.println("The total amount of the all tickets is: " + sumaPrices + " €");
+       if(!flowerShop.getTicketList().isEmpty()) {
+           for (Ticket ticket : flowerShop.getTicketList())
+               sumaPrices += ticket.getTotalPrice();
+           System.out.println("The total amount of the all tickets is: " + sumaPrices + " €");
+       } else {
+           System.out.println("0€, there are no purchases.");
+       }
     }
 
     public static int searchProduct (List<Product> productList, String name){
