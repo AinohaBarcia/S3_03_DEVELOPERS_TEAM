@@ -9,7 +9,7 @@ public class Menu {
 
         byte option;
         final byte MIN = 0;
-        final byte MAX = 12;
+        final byte MAX = 13;
 
         do {
             System.out.println("Application menu: \r\n"
@@ -25,6 +25,7 @@ public class Menu {
                     + "10. Create a ticket with the total items. \r\n"
                     + "11. Show old purchases. \r\n"
                     + "12. View the total money earned from all sales. \r\n"
+                    + "13. Restart Data.txt. \r\n"
                     + "0. Exit app.");
             option = Input.getByte("Choose the section you want to access:");
             if (option < MIN || option > MAX) {
@@ -34,7 +35,7 @@ public class Menu {
         return option;
     }
 
-    public static void choseMenu(FlowerShop flowerShop){
+    public static FlowerShop choseMenu(FlowerShop flowerShop){
         boolean exit = false;
         do {
             switch (showMenu()) {
@@ -89,13 +90,18 @@ public class Menu {
                     System.out.println("Menu 12 - View the total money earned from all sales.");
                     Methods.showTotalEarnings(flowerShop);
                     break;
+                case 13:
+                    System.out.println("Menu 13 - Restart Data.txt.");
+                    FlowerShop flowerShop1 = Methods.restartDataTxt();
+                    flowerShop = flowerShop1;
+                    break;
                 case 0:
                     System.out.println("Thank you for use the app.");
                     exit = true;
                     break;
             }
         } while (!exit);
-
+        return flowerShop;
     }
 
     public static int menuTicket(){

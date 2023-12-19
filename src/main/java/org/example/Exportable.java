@@ -8,7 +8,7 @@ public class Exportable {
 
         FileInputStream fileInputStream = null;
         try {
-            fileInputStream = new FileInputStream("data.txt");
+            fileInputStream = new FileInputStream("src/main/java/org/example/data.txt");
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
@@ -24,11 +24,15 @@ public class Exportable {
         } catch (IOException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
-
+        try {
+            fileInputStream.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         return flowerShop;
     }
     public static void exportFlowerShop(FlowerShop flowerShop) throws IOException {
-        OutputStream fileOutputStream = new FileOutputStream("data.txt");
+        OutputStream fileOutputStream = new FileOutputStream("src/main/java/org/example/data.txt");
         ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
         try {
             objectOutputStream.writeObject(flowerShop);

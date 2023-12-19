@@ -5,11 +5,11 @@ import java.io.Externalizable;
 public abstract class Product implements Externalizable {
     protected String name;
     protected float price;
+    protected String type;
 
     public Product (String name, float price){
         this.name = name;
         this.price = price;
-
     }
     public Product() { }
 
@@ -18,7 +18,7 @@ public abstract class Product implements Externalizable {
 
     public void setName(String name){this.name = name;}
     public void setPrice(float price){this.price = price;}
-
+    public abstract String getType();
     public abstract String generateId();
 
 }
