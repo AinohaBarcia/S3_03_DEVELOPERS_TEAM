@@ -36,7 +36,7 @@ public class Tree extends Product{
 
     @Override
     public String generateId(){
-        return "A" + contId;
+        return "T" + contId;
     }
 
     @Override
