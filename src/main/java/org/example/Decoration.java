@@ -15,15 +15,24 @@ public class Decoration extends Product implements Externalizable {
     public Decoration(String name, float price, String decorationMaterial) {
         super(name, price);
         id = generateId();
+        super.type = "DECORATION";
         contId++;
         this.decorationMaterial = decorationMaterial;
     }
+
 
     public Decoration() { }
 
     public String id(){return id;}
     public String getType(){return type;}
 
+    public static void updateCounter(int counter){
+        contId= counter;
+    }
+
+    public int getContId() {
+        return contId;
+    }
 
     @Override
     public String generateId() {

@@ -8,12 +8,13 @@ public class Tree extends Product{
     private String id;
     private float height;
     private static int contId;
-    private static String type = "TREE";
+
 
     public Tree(String name, float price, float height) {
         super(name, price);
         id = generateId();
         this.height = height;
+        super.type = "TREE";
         contId++;
     }
     public Tree() { }
@@ -22,7 +23,16 @@ public class Tree extends Product{
     public float getHeight(){return height;}
     public String getType(){return type;}
 
+
+    public int getContId() {
+        return contId;
+    }
+
     public void setHeight(float height){this.height = height;}
+
+    public static void updateCounter(int counter){
+        contId= counter;
+    }
 
     @Override
     public String generateId(){

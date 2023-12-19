@@ -14,6 +14,7 @@ public class Flower extends Product{
         super(name, price);
         id = generateId();
         this.colour = colour;
+        super.type = "FLOWER";
         contId++;
     }
 
@@ -23,7 +24,15 @@ public class Flower extends Product{
     public String getColour(){return colour;}
     public String getType(){return type;}
 
+    public int getContId() {
+        return contId;
+    }
+
     public void setColour(String height){this.colour = colour;}
+
+    public static void updateCounter(int counter){
+        contId= counter;
+    }
 
     @Override
     public String generateId() {

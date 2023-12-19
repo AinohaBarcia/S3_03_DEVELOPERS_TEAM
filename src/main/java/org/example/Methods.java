@@ -1,9 +1,9 @@
 package org.example;
 
-import java.util.ArrayList;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.*;
 import java.util.List;
-import java.util.Locale;
-import java.util.concurrent.Flow;
 
 public class Methods {
 
@@ -20,7 +20,36 @@ public class Methods {
         productList.add(new Flower(Input.getString("Flower name:"), Input.getFloat("Price:"), Input.getString("Colour:")));
     }
 
+    public static void createDataTxt() {
+        FlowerShop flowershop = null;
+        try {
+            Exportable.exportFlowerShop(flowershop);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
+    public static void deleteDataTxt(){
+        File Arch= new File("src/main/java/org/example/data.txt");
+        try {
+            Files.delete(Arch.toPath());
+        } catch (NoSuchFileException x) {
+            System.err.format("%s: no such" + " file or directory%n", Arch.toPath());
+        } catch (DirectoryNotEmptyException x) {
+            System.err.format("%s not empty%n", Arch.toPath());
+        } catch (IOException x) {
+            // File permission problems are caught here.
+            System.err.println(x);
+        }
+    }
+
+    public static FlowerShop restartDataTxt(){
+        deleteDataTxt();
+        createDataTxt();
+        FlowerShop flowerShop1 = null;
+        return createNewFlowerShop(flowerShop1);
+
+    }
 
     public static void createDecoration(List<Product>productList){
         char letterMaterial = Input.getString("Decoration material: Wood or Plastic?").toUpperCase().charAt(0);
@@ -77,6 +106,20 @@ public class Methods {
         Menu.chooseMenuTicket(flowerShop, ticket);
         float totalPrice = ticket.sumTotalTicketProduct();
         System.out.println("Total price: " + totalPrice);
+    }
+    public static void updateCounters(FlowerShop flowerShop){
+        if((flowerShop != null) && (!flowerShop.getProductList().isEmpty())){
+            if(!flowerShop.getProductList().stream().filter(o ->o instanceof Tree).toList().isEmpty()){
+                Tree tree= (Tree) flowerShop.getProductList().stream().filter(o ->o instanceof Tree).toList().get(0);
+                Tree.updateCounter(tree.getContId());
+            }else if(!flowerShop.getProductList().stream().filter(o ->o instanceof Flower).toList().isEmpty()){
+                Flower flower = (Flower) flowerShop.getProductList().stream().filter(o ->o instanceof Flower).toList().get(0);
+                Flower.updateCounter(flower.getContId());
+            }else if(!flowerShop.getProductList().stream().filter(o ->o instanceof Decoration).toList().isEmpty()) {
+                Decoration decoration = (Decoration) flowerShop.getProductList().stream().filter(o -> o instanceof Decoration).toList().get(0);
+                Decoration.updateCounter(decoration.getContId());
+            }
+        }
     }
 
     public static void addProductTicket(FlowerShop flowerShop, Ticket ticket){
